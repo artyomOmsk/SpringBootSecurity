@@ -51,7 +51,6 @@ public class AdminController {
 
     @PostMapping
     public String createNewUser(@ModelAttribute("user") User user, @RequestParam ArrayList<String> listRoleId) {
-
         user.setRoles(roleService.convetToRolesSet(listRoleId));
         userService.saveUser(user);
         return "redirect:/admin";

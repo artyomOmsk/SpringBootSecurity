@@ -11,6 +11,7 @@ import java.util.Set;
 public class Role implements GrantedAuthority {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String name;
@@ -26,9 +27,8 @@ public class Role implements GrantedAuthority {
         this.id = id;
     }
 
-    public Role(Long id, String name) {
-        this.id = id;
-        this.name = name;
+    public Role(String name) {
+       this.name = name;
     }
 
     public Long getId() {

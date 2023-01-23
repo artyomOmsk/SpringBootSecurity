@@ -5,6 +5,7 @@ import ru.kata.spring.boot_security.demo.entities.User;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.transaction.Transactional;
 import java.util.List;
 
 
@@ -12,25 +13,29 @@ import java.util.List;
 public class UserDaoImpl implements UserDao {
 
     @PersistenceContext
-    EntityManager entityManager;
+    private EntityManager entityManager;
 
     @Override
+    @Transactional
     public List<User> getAllUsers() {
         return entityManager.createQuery("SELECT users FROM User users LEFT JOIN FETCH users.roles", User.class).getResultList();
     }
 
     @Override
+    @Transactional
     public User getUserById(Long id) {
         return entityManager.find(User.class, id);
     }
 
     @Override
+    @Transactional
     public void saveUser(User user) {
         entityManager.persist(user);
         entityManager.flush();
     }
 
     @Override
+    @Transactional
     public void updateUser(User user) {
         entityManager.merge(user);
         entityManager.flush();
@@ -38,6 +43,7 @@ public class UserDaoImpl implements UserDao {
     }
 
     @Override
+    @Transactional
     public void deleteUser(Long id) {
         entityManager.remove(entityManager.find(User.class, id));
         entityManager.flush();
@@ -45,6 +51,7 @@ public class UserDaoImpl implements UserDao {
     }
 
     @Override
+    @Transactional
     public User getUserByUsername(String username) {
         return entityManager.createQuery("select user FROM User user JOIN FETCH user.roles WHERE user.username = :username", User.class)
                 .setParameter("username", username)

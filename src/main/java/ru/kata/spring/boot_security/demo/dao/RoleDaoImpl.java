@@ -5,39 +5,43 @@ import ru.kata.spring.boot_security.demo.entities.Role;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.transaction.Transactional;
 import java.util.List;
 
 @Repository
 public class RoleDaoImpl implements RoleDao {
 
     @PersistenceContext
-    EntityManager entityManager;
+    private EntityManager entityManager;
 
     @Override
+    @Transactional
     public List<Role> getAllRoles() {
         return entityManager.createQuery("SELECT roles FROM Role roles", Role.class).getResultList();
     }
 
     @Override
+    @Transactional
     public Role getRoleById(Long id) {
         return entityManager.find(Role.class, id);
     }
 
     @Override
+    @Transactional
     public void saveRole(Role role) {
         entityManager.persist(role);
         entityManager.flush();
-
     }
 
     @Override
+    @Transactional
     public void updateRole(Role role) {
         entityManager.merge(role);
         entityManager.flush();
-
     }
 
     @Override
+    @Transactional
     public void deleteRole(Long id) {
         entityManager.remove(entityManager.find(Role.class, id));
         entityManager.flush();
@@ -45,6 +49,7 @@ public class RoleDaoImpl implements RoleDao {
     }
 
     @Override
+    @Transactional
     public Role getRoleByName(String name) {
         return entityManager.find(Role.class, name);
     }

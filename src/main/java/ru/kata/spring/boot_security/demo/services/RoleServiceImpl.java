@@ -14,7 +14,7 @@ import java.util.Set;
 @Service
 public class RoleServiceImpl implements RoleService{
 
-    RoleDao roleDao;
+    private RoleDao roleDao;
 
     @Autowired
     public void setRoleDao(RoleDao roleDao) {
@@ -37,6 +37,7 @@ public class RoleServiceImpl implements RoleService{
     @Transactional
     public void saveRole(Role role) {
         roleDao.saveRole(role);
+
 
     }
 
