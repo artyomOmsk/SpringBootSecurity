@@ -55,6 +55,7 @@ public class AdminController {
         model.addAttribute("user", userService.getUserById(id));
         model.addAttribute("roleAdmin", roleService.getRoleById(1L));
         model.addAttribute("roleUser", roleService.getRoleById(2L));
+
         return "updateUserFormView";
     }
 
