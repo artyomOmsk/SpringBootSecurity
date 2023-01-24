@@ -14,6 +14,15 @@
         <label for="password">Enter password</label>
         <input type="text" th:field="*{password}" id="password"/>
         </br>
+        <label for="password">Enter first name</label>
+        <input type="text" th:field="*{firstName}" id="firstName"/>
+        </br>
+        <label for="password">Enter last name</label>
+        <input type="text" th:field="*{lastName}" id="lastName"/>
+        </br>
+        <label for="password">Enter phone number</label>
+        <input type="text" th:field="*{phoneNumber}" id="phoneNumber"/>
+        </br>
         <label for="roles">Roles</label>
         <div id="roles">
             <div th:each="role : ${roleAdmin}">

@@ -8,11 +8,20 @@
 <body>
 <div>
     <form th:method="POST" th:action="@{/admin/{id}(id=${user.getId()})}" th:object="${user}">
-        <label for="name">Enter name</label>
+        <label for="name">Enter username</label>
         <input type="text" th:field="*{username}" id="name"/>
         </br>
-        <label for="age">Enter password</label>
-        <input type="text" th:field="*{password}" id="age"/>
+        <label for="password">Enter password</label>
+        <input type="text" th:field="*{password}" id="password"/>
+        </br>
+        <label for="password">Enter first name</label>
+        <input type="text" th:field="*{firstName}" id="firstName"/>
+        </br>
+        <label for="password">Enter last name</label>
+        <input type="text" th:field="*{lastName}" id="lastName"/>
+        </br>
+        <label for="password">Enter phone number</label>
+        <input type="text" th:field="*{phoneNumber}" id="phoneNumber"/>
         </br>
         <div id="roles">
             <div th:each="role : ${roleAdmin}">
