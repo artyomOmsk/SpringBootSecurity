@@ -8,6 +8,7 @@ import ru.kata.spring.boot_security.demo.services.RoleService;
 import ru.kata.spring.boot_security.demo.services.UserService;
 
 import javax.annotation.PostConstruct;
+import javax.transaction.Transactional;
 import java.util.Set;
 
 @Component
@@ -23,6 +24,7 @@ public class    Init {
     }
 
     @PostConstruct
+    @Transactional
     void postConstruct() {
         if (roleService.getRoleById(1L) == null & roleService.getRoleById(2L) == null) {
             roleService.saveRole(new Role("ROLE_ADMIN"));

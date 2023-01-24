@@ -18,7 +18,7 @@ public class UserDaoImpl implements UserDao {
     @Override
     @Transactional
     public List<User> getAllUsers() {
-        return entityManager.createQuery("SELECT users FROM User users LEFT JOIN FETCH users.roles", User.class).getResultList();
+        return entityManager.createQuery("FROM User users", User.class).getResultList();
     }
 
     @Override

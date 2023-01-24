@@ -16,9 +16,13 @@
         </br>
         <label for="roles">Roles</label>
         <div id="roles">
-            <div th:each="role : ${allRoles}">
-                <input type="checkbox" name="roles" th:id="${role.name}" th:value="${role.name}">
-                <label th:for="${role.name}" th:text="${role.name}"/>
+            <div th:each="role : ${roleAdmin}">
+                <input type="checkbox" name="roles" th:id="${roleAdmin.name}" th:value="${roleAdmin.name}">
+                <label th:for="${roleAdmin.name}" th:text="${roleAdmin.name}"/>
+            </div>
+            <div th:each="role : ${roleUser}">
+                <input type="checkbox" name="roles" th:id="${roleUser.name}" th:value="${roleUser.name}">
+                <label th:for="${roleUser.name}" th:text="${roleUser.name}"/>
             </div>
         </div>
         </br>

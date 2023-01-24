@@ -39,7 +39,8 @@ public class AdminController {
     @GetMapping("/new")
     public String getNewUserFormView(Model model) {
         model.addAttribute("user", new User());
-        model.addAttribute("allRoles", roleService.getAllRoles());
+        model.addAttribute("roleAdmin", roleService.getRoleById(1L));
+        model.addAttribute("roleUser", roleService.getRoleById(2L));
         return "newUserFormView";
     }
 
@@ -52,7 +53,8 @@ public class AdminController {
     @GetMapping("/{id}/edit")
     public String getUpdateUserFormView(Model model, @PathVariable("id") Long id) {
         model.addAttribute("user", userService.getUserById(id));
-        model.addAttribute("allRoles", roleService.getAllRoles());
+        model.addAttribute("roleAdmin", roleService.getRoleById(1L));
+        model.addAttribute("roleUser", roleService.getRoleById(2L));
         return "updateUserFormView";
     }
 

@@ -25,6 +25,8 @@ public class User implements UserDetails {
     @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Set<Role> roles;
 
+
+
     public User() {
     }
 
