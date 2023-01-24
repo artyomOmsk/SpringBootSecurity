@@ -2,14 +2,11 @@ package ru.kata.spring.boot_security.demo.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import ru.kata.spring.boot_security.demo.dao.RoleDao;
 import ru.kata.spring.boot_security.demo.entities.Role;
 
-import javax.transaction.Transactional;
-import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 @Service
 public class RoleServiceImpl implements RoleService{
@@ -22,13 +19,13 @@ public class RoleServiceImpl implements RoleService{
     }
 
     @Override
-    @Transactional
+    @Transactional(readOnly = true)
     public List<Role> getAllRoles() {
         return roleDao.getAllRoles();
     }
 
     @Override
-    @Transactional
+    @Transactional(readOnly = true)
     public Role getRoleById(Long id) {
         return roleDao.getRoleById(id);
     }
@@ -54,7 +51,7 @@ public class RoleServiceImpl implements RoleService{
     }
 
     @Override
-    @Transactional
+    @Transactional(readOnly = true)
     public Role getRoleByName(String name) {
         return roleDao.getRoleByName(name);
     }
