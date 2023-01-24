@@ -19,6 +19,4 @@ public interface RoleService {
 
     Role getRoleByName(String name);
 
-    Set<Role> convetToRolesSet(ArrayList<String> listRoleId);
-
 }

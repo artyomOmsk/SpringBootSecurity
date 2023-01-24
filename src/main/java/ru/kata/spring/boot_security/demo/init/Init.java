@@ -11,7 +11,7 @@ import javax.annotation.PostConstruct;
 import java.util.Set;
 
 @Component
-public class Init {
+public class    Init {
 
     private UserService userService;
     private RoleService roleService;

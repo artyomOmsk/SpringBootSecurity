@@ -31,23 +31,18 @@ public class UserDaoImpl implements UserDao {
     @Transactional
     public void saveUser(User user) {
         entityManager.persist(user);
-        entityManager.flush();
     }
 
     @Override
     @Transactional
     public void updateUser(User user) {
         entityManager.merge(user);
-        entityManager.flush();
-
     }
 
     @Override
     @Transactional
     public void deleteUser(Long id) {
         entityManager.remove(entityManager.find(User.class, id));
-        entityManager.flush();
-
     }
 
     @Override

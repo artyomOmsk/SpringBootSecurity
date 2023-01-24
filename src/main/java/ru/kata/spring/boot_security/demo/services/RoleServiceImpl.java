@@ -37,8 +37,6 @@ public class RoleServiceImpl implements RoleService{
     @Transactional
     public void saveRole(Role role) {
         roleDao.saveRole(role);
-
-
     }
 
     @Override
@@ -61,13 +59,5 @@ public class RoleServiceImpl implements RoleService{
         return roleDao.getRoleByName(name);
     }
 
-    @Override
-    public Set<Role> convetToRolesSet(ArrayList<String> listRoleId) {
-        Set<Role> userRole = new HashSet<>();
-        for (String roleId : listRoleId) {
-            Role role = getRoleById(Long.parseLong(roleId));
-            userRole.add(role);
-        }
-        return userRole;
-    }
+
 }

@@ -30,21 +30,18 @@ public class RoleDaoImpl implements RoleDao {
     @Transactional
     public void saveRole(Role role) {
         entityManager.persist(role);
-        entityManager.flush();
     }
 
     @Override
     @Transactional
     public void updateRole(Role role) {
         entityManager.merge(role);
-        entityManager.flush();
     }
 
     @Override
     @Transactional
     public void deleteRole(Long id) {
         entityManager.remove(entityManager.find(Role.class, id));
-        entityManager.flush();
 
     }
 

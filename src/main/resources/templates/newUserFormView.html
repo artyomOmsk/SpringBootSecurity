@@ -14,13 +14,16 @@
         <label for="password">Enter password</label>
         <input type="text" th:field="*{password}" id="password"/>
         </br>
-
-        <select multiple size="2" name="listRoleId" required class="form-control form-control-sm">
-            <option value="1">ROLE_ADMIN</option>
-            <option selected="selected" value="2">ROLE_USER</option>
-        </select>
+        <label for="roles">Roles</label>
+        <div id="roles">
+            <div th:each="role : ${allRoles}">
+                <input type="checkbox" name="roles" th:id="${role.name}" th:value="${role.name}">
+                <label th:for="${role.name}" th:text="${role.name}"/>
+            </div>
+        </div>
         </br>
         <input type="submit" value="Add new user"/>
+        </br>
         <a type="button" th:href="@{/logout}">Logout</a></p>
 
     </form>
